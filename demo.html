@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript">
+    var ws = new WebSocket("ws://127.0.0.1:8080/demowSocket");
+
+    ws.onopen = function(evt) {
+      console.log("Connection open ...");
+      ws.send("Hello WebSockets!");
+    };
+
+    ws.onmessage = function(evt) {
+      console.log( "Received Message: " + evt.data);
+      ws.close();
+    };
+
+    ws.onclose = function(evt) {
+      console.log("Connection closed.");
+    };
+  </script>
+</head>
+<style>
+  html {
+    font-size: 16px;
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    width: 98%;
+    height: 98%;
+    font-size: 64px;
+  }
+
+  p {
+    margin:auto;
+    font-size: 3rem;
+    padding-top: 2rem;
+  }
+</style>
+<body>
+<p>abcde</p>
+
+</body>
+</html>
